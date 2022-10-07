@@ -11,8 +11,14 @@ class MyClass extends Thread{
     public void run() {
         //TODO auto-generated method stub
         for (int i = 0; i < 10; i++) {
-            System.out.println("Value " + i);
+            System.out.println(Thread.currentThread().getName()  +" Value " + i);
 
+        }
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            //Todo catch-block
+            e.printStackTrace();
         }
     }
     
@@ -22,6 +28,8 @@ public class lesson1 {
     public static void main(String[] args) {
         MyClass myClass = new MyClass();
         myClass.start();
+        MyClass myClass1 = new MyClass();
+        myClass1.start();
     }
     
 }
